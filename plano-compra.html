@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano Compra - Gerador de O.S.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+
+<body class="flex flex-col items-center">
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- <div class="logo-area">
+                <span class="logo-placeholder-text">MinhaLogo</span>
+            </div> -->
+            <ul class="menu-links">
+                <li><a href="index.html">PLANO COMODATO</a></li>
+                <li><a href="plano-compra.html">PLANO COMPRA</a></li>
+                <li><a href="plano-combo.html">PLANO COMBO</a></li>
+                <li><a href="plano-gamer.html">PLANO GAMER</a></li>
+                <li><a href="avaliacao-tv.html">AVL. CABEAR TV</a></li>
+                <li><a href="avaliacao-ponto.html">AVL. PONTO ADICIONAL</a></li>
+            </ul>
+            <div class="menu-actions">
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="form-container">
+            <h1 class="form-title">Dados para O.S. - Plano Compra</h1>
+
+            <form id="osPlanoCompraForm" class="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-8">
+
+                <div>
+                    <label for="localizacao" class="form-label">LOCALIZAÇÃO (GOOGLE):</label>
+                    <input type="text" id="localizacao" name="localizacao" class="form-input">
+                </div>
+
+                <div>
+                    <label class="form-label">PODE ADIANTAR:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="podeAdiantar" value="SIM" class="form-radio">
+                            <span>SIM</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="podeAdiantar" value="NÃO" class="form-radio" checked>
+                            <span>NÃO</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="form-label">POSTE PADRÃO:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="postePadrao" value="SIM" class="form-radio">
+                            <span>SIM</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="postePadrao" value="NÃO" class="form-radio" checked>
+                            <span>NÃO</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="dataInstalacao" class="form-label">DATA INSTALAÇÃO E PERÍODO:</label>
+                    <div class="flex items-center space-x-2">
+                        <input type="date" id="dataInstalacao" name="dataInstalacao" class="form-input w-1/2">
+                        <select id="periodo" name="periodo" class="form-select w-1/2">
+                            <option value="integral">Integral</option>
+                            <option value="manhã">Manhã</option>
+                            <option value="tarde">Tarde</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="form-label">TERMO ACEITO:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="termoAceito" value="SIM" class="form-radio">
+                            <span>SIM</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="termoAceito" value="NÃO" class="form-radio" checked>
+                            <span>NÃO</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="telefone1" class="form-label">TELEFONE 1:</label>
+                    <input type="tel" id="telefone1" name="telefone1" class="form-input">
+                </div>
+
+                <div>
+                    <label for="telefone2" class="form-label">TELEFONE 2:</label>
+                    <input type="tel" id="telefone2" name="telefone2" class="form-input">
+                </div>
+
+                <div>
+                    <label for="pontoRef" class="form-label">PONTO DE REF:</label>
+                    <input type="text" id="pontoRef" name="pontoRef" class="form-input">
+                </div>
+
+                <div>
+                    <label class="form-label">TITULAR ACOMPANHARÁ INSTALAÇÃO:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="titularAcompanha" value="SIM" class="form-radio">
+                            <span>SIM</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="titularAcompanha" value="NÃO" class="form-radio" checked>
+                            <span>NÃO</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="form-label">LADO PRAIA OU MORRO:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="lado" value="PRAIA" class="form-radio" checked>
+                            <span>PRAIA</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="lado" value="MORRO" class="form-radio">
+                            <span>MORRO</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="modalidade" class="form-label">MODALIDADE DA CONTRATAÇÃO:</label>
+                    <select id="modalidade" name="modalidade" class="form-select">
+                        <option value="KIT GIGA COMPRA">KIT GIGA COMPRA</option>
+                        <option value="RECARGA">RECARGA</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="comodoInstalacao" class="form-label">COMODO DE INSTALAÇÃO:</label>
+                    <input type="text" id="comodoInstalacao" name="comodoInstalacao" value="irá escolher com o técnico"
+                        class="form-input">
+                </div>
+
+                <div>
+                    <label for="servico" class="form-label">SERVIÇO:</label>
+                    <input type="text" id="servico" name="servico" value="10MB" class="form-input">
+                </div>
+
+                <div>
+                    <label class="form-label">RECARGA MAIOR?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="recargaMaior" value="SIM" class="form-radio">
+                            <span>SIM</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="recargaMaior" value="NÃO" class="form-radio" checked>
+                            <span>NÃO</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="velocidadeValorRecarga" class="form-label">VELOCIDADE E VALOR DA RECARGA:</label>
+                    <input type="text" id="velocidadeValorRecarga" name="velocidadeValorRecarga" class="form-input"
+                        placeholder="Ex: 50MB - R$50,00">
+                </div>
+
+                <div>
+                    <label for="taxaAtivacao" class="form-label">TAXA DE ATIVAÇÃO:</label>
+                    <input type="text" id="taxaAtivacao" name="taxaAtivacao" value="instalação gratuita"
+                        class="form-input">
+                </div>
+
+                <div>
+                    <label for="total" class="form-label">TOTAL:</label>
+                    <input type="text" id="total" name="total" class="form-input" placeholder="Ex: R$ 99,90">
+                </div>
+
+                <div class="md:col-span-1"> <label for="vendedor" class="form-label">VENDEDOR:</label>
+                    <input type="text" id="vendedor" name="vendedor" class="form-input">
+                </div>
+
+                <div class="md:col-span-1"> <label for="dataVencimentoFatura" class="form-label">DATA DE VENCIMENTO DA
+                        FATURA:</label>
+                    <input type="text" id="dataVencimentoFatura" name="dataVencimentoFatura" class="form-input"
+                        placeholder="Ex: Dia 10">
+                </div>
+
+                <div class="md:col-span-2 mt-6">
+                    <button type="button" id="generateTextPlanoCompra" class="btn btn-primary w-full">
+                        Gerar Texto Formatado
+                    </button>
+                </div>
+            </form>
+
+            <div id="resultAreaPlanoCompra" class="mt-10 hidden">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Texto Formatado:</h2>
+                <textarea id="formattedTextPlanoCompra" rows="15" class="result-textarea"></textarea>
+                <button id="copyButtonPlanoCompra" class="btn btn-secondary w-full mt-4">
+                    Copiar Texto
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/plano-compra.js"></script>
+</body>
+
+</html>

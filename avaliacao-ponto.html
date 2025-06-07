@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação Ponto Adicional - Gerador O.S.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+
+<body class="flex flex-col items-center">
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- <div class="logo-area">
+                <span class="logo-placeholder-text">MinhaLogo</span>
+            </div> -->
+            <ul class="menu-links">
+                <li><a href="index.html">PLANO COMODATO</a></li>
+                <li><a href="plano-compra.html">PLANO COMPRA</a></li>
+                <li><a href="plano-combo.html">PLANO COMBO</a></li>
+                <li><a href="plano-gamer.html">PLANO GAMER</a></li>
+                <li><a href="avaliacao-tv.html">AVL. CABEAR TV</a></li>
+                <li><a href="avaliacao-ponto.html">AVL. PONTO ADICIONAL</a></li>
+            </ul>
+            <div class="menu-actions">
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="form-container">
+            <h1 class="form-title">Avaliação - Ponto Adicional / Cabeamento Gamer</h1>
+
+            <form id="osAvaliacaoPontoForm" class="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-8">
+
+                <div class="md:col-span-2">
+                    <label class="form-label">SERVIÇO PARA AVALIAÇÃO:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="servicoAvaliacao" value="PONTO ADICIONAL" class="form-radio"
+                                checked>
+                            <span>PONTO ADICIONAL</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="servicoAvaliacao" value="CABEAMENTO GAMER" class="form-radio">
+                            <span>CABEAMENTO GAMER</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2">
+                    <label for="dataAgendamentoPonto" class="form-label">DATA E PERÍODO (AGENDAMENTO):</label>
+                    <div class="flex items-center space-x-2">
+                        <input type="date" id="dataAgendamentoPonto" name="dataAgendamentoPonto"
+                            class="form-input w-1/2">
+                        <select id="periodoAgendamentoPonto" name="periodoAgendamentoPonto" class="form-select w-1/2">
+                            <option value="integral">Integral</option>
+                            <option value="manhã">Manhã</option>
+                            <option value="tarde">Tarde</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="form-label">ISENTO:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="isento" value="SIM" class="form-radio">
+                            <span>SIM</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="isento" value="NÃO" class="form-radio" checked>
+                            <span>NÃO</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="form-label">EQUIPAMENTO:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="equipamento" value="DO CLIENTE" class="form-radio">
+                            <span>DO CLIENTE</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="equipamento" value="COMODATO" class="form-radio" checked>
+                            <span>COMODATO</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2">
+                    <label for="servicoVelocidade" class="form-label">SERVIÇO (VELOCIDADE):</label>
+                    <input type="text" id="servicoVelocidade" name="servicoVelocidade" class="form-input"
+                        placeholder="Ex: 100MB ou N/A para Cabeamento Gamer">
+                </div>
+
+
+                <div class="md:col-span-2 mt-6">
+                    <button type="button" id="generateTextAvaliacaoPonto" class="btn btn-primary w-full">
+                        Gerar Texto Formatado
+                    </button>
+                </div>
+            </form>
+
+            <div id="resultAreaAvaliacaoPonto" class="mt-10 hidden">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Texto Formatado:</h2>
+                <textarea id="formattedTextAvaliacaoPonto" rows="8" class="result-textarea"></textarea>
+                <button id="copyButtonAvaliacaoPonto" class="btn btn-secondary w-full mt-4">
+                    Copiar Texto
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/avaliacao-ponto.js"></script>
+</body>
+
+</html>

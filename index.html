@@ -10,15 +10,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style/styles.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#840016', /* Vermelho escuro */
+                        secondary: '#E4002B', /* Vermelho vibrante */
+                        tertiary: '#060C12', /* Preto/Azul escuro */
+                        neutral: '#F7F6F3', /* Branco/Creme */
+                    },
+                    fontFamily: {
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
 </head>
 
-<body class="flex flex-col items-center">
+<body class="flex flex-col min-h-screen font-montserrat bg-neutral">
 
     <nav class="navbar">
         <div class="nav-container">
-            <!-- <div class="logo-area">
-                <span class="logo-placeholder-text">MinhaLogo</span>
-            </div> -->
             <ul class="menu-links">
                 <li><a href="index.html">PLANO COMODATO</a></li>
                 <li><a href="plano-compra.html">PLANO COMPRA</a></li>
@@ -36,7 +51,7 @@
         <div class="form-container">
             <h1 class="form-title">Gerador de Dados para Ordem de Serviço</h1>
 
-            <form id="osForm" class="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-8">
+            <form id="osForm" class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-10">
                 <div>
                     <label for="localizacao" class="form-label">LOCALIZAÇÃO (GOOGLE):</label>
                     <input type="text" id="localizacao" name="localizacao" class="form-input">
@@ -72,7 +87,7 @@
 
                 <div>
                     <label for="dataInstalacao" class="form-label">DATA INSTALAÇÃO E PERÍODO:</label>
-                    <div class="flex items-center space-x-2">
+                    <div class="flex items-center space-x-4">
                         <input type="date" id="dataInstalacao" name="dataInstalacao" class="form-input w-1/2">
                         <select id="periodo" name="periodo" class="form-select w-1/2">
                             <option value="Integral">Integral</option>
@@ -142,7 +157,6 @@
                 <div>
                     <label for="modalidade" class="form-label">MODALIDADE DA CONTRATAÇÃO:</label>
                     <input class="form-input" type="text" value="KIT GIGA COMODATO" id="modalidade" disabled>
-                    </select>
                 </div>
 
                 <div>
@@ -158,7 +172,7 @@
 
                 <div>
                     <label for="valorPlano" class="form-label">VALOR DO PLANO:</label>
-                    <input type="text" id="valorPlano" name="valorPlano" class="form-input" placeholder="Ex: R$ 99,90">
+                    <input type="text" id="valorPlano" name="valorPlano" class="form-input" placeholder="Ex: 99,90">
                 </div>
 
                 <div>
@@ -169,7 +183,7 @@
 
                 <div>
                     <label for="total" class="form-label">TOTAL:</label>
-                    <input type="text" id="total" name="total" class="form-input" placeholder="Ex: R$ 99,90">
+                    <input type="text" id="total" name="total" class="form-input" placeholder="Ex: 99,90">
                 </div>
 
                 <div>
@@ -188,7 +202,8 @@
                     </select>
                 </div>
 
-                <div class="md:col-span-2"> <label class="form-label">AVALIAÇÃO PARA PONTO ADICIONAL:</label>
+                <div class="md:col-span-2"> 
+                    <label class="form-label">AVALIAÇÃO PARA PONTO ADICIONAL:</label>
                     <div class="radio-group">
                         <label class="radio-label">
                             <input type="radio" name="pontoAdicional" value="SIM" class="form-radio">
@@ -201,17 +216,17 @@
                     </div>
                 </div>
 
-                <div class="md:col-span-2 mt-6">
+                <div class="md:col-span-2 mt-8">
                     <button type="button" id="generateText" class="btn btn-primary w-full">
                         Gerar Texto Formatado
                     </button>
                 </div>
             </form>
 
-            <div id="resultArea" class="mt-10 hidden">
-                <h2 class="text-xl font-semibold text-gray-800 mb-4">Texto Formatado:</h2>
-                <textarea id="formattedText" rows="15" class="result-textarea"></textarea>
-                <button id="copyButton" class="btn btn-secondary w-full mt-4">
+            <div id="resultArea" class="mt-12 hidden">
+                <h2 class="text-xl font-semibold text-tertiary mb-6">Texto Formatado:</h2>
+                <textarea id="formattedText" rows="18" class="result-textarea"></textarea>
+                <button id="copyButton" class="btn btn-secondary w-full mt-6">
                     Copiar Texto
                 </button>
             </div>

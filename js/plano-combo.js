@@ -45,9 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
             data.modalidade = osForm.elements['modalidade'].value || 'Não informado';
             data.comodoInstalacao = osForm.elements['comodoInstalacao'].value.trim() || 'Não informado';
             data.servico = osForm.elements['servico'].value.trim() || 'Não informado';
-            data.valorPlano = osForm.elements['valorPlano'].value.trim() || 'Não informado';
+            data.valorPlano = osForm.elements['valorPlano'].value.trim(); // Removido o 'R$' inicial para adicionar na formatação
             data.taxaAtivacao = osForm.elements['taxaAtivacao'].value.trim() || 'instalação gratuita';
-            data.total = osForm.elements['total'].value.trim() || 'Não informado';
+            data.total = osForm.elements['total'].value.trim(); // Removido o 'R$' inicial para adicionar na formatação
             data.vendedor = osForm.elements['vendedor'].value.trim() || 'Não informado';
             data.dataVencimentoFatura = osForm.elements['dataVencimentoFatura'].value.trim() || 'Não informado';
             data.avaliacaoCabearTv = getRadioValue(osForm, 'avaliacaoCabearTv');
@@ -69,9 +69,9 @@ LADO PRAIA OU MORRO: ${data.lado}
 MODALIDADE DA CONTRATAÇÃO: ${data.modalidade}
 COMODO DE INSTALAÇÃO: ${data.comodoInstalacao}
 SERVIÇO: ${data.servico}
-VALOR DO PLANO: ${data.valorPlano}
+VALOR DO PLANO: ${data.valorPlano ? `R$${data.valorPlano}` : 'Não informado'}
 TAXA DE ATIVAÇÃO: ${data.taxaAtivacao}
-TOTAL: ${data.total}
+TOTAL: ${data.total ? `R$${data.total}` : 'Não informado'}
 VENDEDOR: ${data.vendedor}
 DATA DE VENCIMENTO DA FATURA: ${data.dataVencimentoFatura}
 AVALIAÇÃO PARA CABEAR TV: ${data.avaliacaoCabearTv}

@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
             data.velocidadeValorRecarga = osForm.elements['velocidadeValorRecarga'].value.trim() || 'Não informado';
             
             data.taxaAtivacao = osForm.elements['taxaAtivacao'].value.trim() || 'instalação gratuita';
-            data.total = osForm.elements['total'].value.trim() || 'Não informado';
+            data.total = osForm.elements['total'].value.trim(); // Removido o 'R$' inicial para adicionar na formatação
             data.vendedor = osForm.elements['vendedor'].value.trim() || 'Não informado';
             data.dataVencimentoFatura = osForm.elements['dataVencimentoFatura'].value.trim() || 'Não informado';
 
@@ -75,7 +75,7 @@ SERVIÇO: ${data.servico}
 RECARGA MAIOR?: ${data.recargaMaior}
 VELOCIDADE E VALOR DA RECARGA: ${data.velocidadeValorRecarga}
 TAXA DE ATIVAÇÃO: ${data.taxaAtivacao}
-TOTAL: ${data.total}
+TOTAL: ${data.total ? `R$${data.total}` : 'Não informado'}
 VENDEDOR: ${data.vendedor}
 DATA DE VENCIMENTO DA FATURA: ${data.dataVencimentoFatura}
             `.trim();

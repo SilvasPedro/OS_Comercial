@@ -43,7 +43,6 @@ body {
     border-radius: 1rem;
     padding: 1rem 2rem;
     box-shadow: var(--sombra-robusta);
-    position: sticky;
     top: 1rem;
     z-index: 1000;
     box-sizing: border-box;

@@ -30,35 +30,26 @@ body {
     flex-direction: column;
 }
 
-/* Estilos do Menu de Navegação */
+/* Estilos do Menu de Navegação Modificados */
 .navbar {
-    width: 100%;
-    background-color: var(--cor-fundo-escuro); /* Fundo do menu com a cor escura */
-    padding: 1rem 0;
+    width: 95%;
+    max-width: 1200px;
+    background-color: var(--cor-fundo-escuro);
+    padding: 1rem 2rem; /* Aumentei o padding lateral interno */
     box-shadow: var(--sombra-padrao);
     position: sticky;
-    top: 0;
+    top: 1rem;
     z-index: 1000;
+    margin: 1rem auto;
+    border-radius: 1rem;
+    box-sizing: border-box; /* Garante que o padding não estoure a largura */
 }
 
 .nav-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%; /* O container agora usa 100% do espaço disponível na navbar */
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centraliza todo o conteúdo */
     align-items: center;
-}
-
-.logo-area {
-    flex-shrink: 0;
-}
-
-.logo-placeholder-text {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--cor-texto-claro); /* Texto da logo com a cor clara */
-    text-decoration: none;
 }
 
 .menu-links {
@@ -67,33 +58,35 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    flex-grow: 1;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permite que os itens vão para a linha de baixo se precisarem */
+    gap: 10px 20px; /* O SEGREDO: 10px de espaço vertical e 20px horizontal entre os itens */
 }
 
 .menu-links li {
-    margin: 0 0.75rem; /* Aumentado um pouco o espaçamento entre os links */
+    margin: 0; /* Removemos a margem antiga para usar o 'gap' acima, que é mais preciso */
 }
 
 .menu-links a {
-    color: var(--cor-fundo-claro); /* Cor padrão dos links com a cor clara */
+    color: var(--cor-fundo-claro);
     text-decoration: none;
-    font-weight: 500;
-    padding: 0.75rem 1.25rem; /* Mais padding para um visual mais robusto */
+    font-weight: 600; /* Um pouco mais grosso para ler melhor no fundo preto */
+    padding: 0.5rem 1rem;
     border-radius: 0.375rem;
     transition: background-color 0.2s ease, color 0.2s ease;
     text-transform: uppercase;
-    font-size: 0.9rem; /* Levemente maior */
+    font-size: 0.85rem; /* Ajuste fino para tentar caber mais itens na mesma linha */
+    white-space: nowrap; /* Impede que o texto de um botão quebre no meio (ex: PLANO \n COMPRA) */
+    display: inline-block;
 }
 
 .menu-links a:hover,
 .menu-links a:focus {
-    background-color: var(--cor-primaria); /* Fundo no hover/focus com a cor primária */
-    color: var(--cor-texto-claro); /* Texto no hover/focus permanece claro */
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
 }
 
 .menu-actions {
-    flex-shrink: 0;
+    display: none; /* Escondendo se não estiver usando, para liberar espaço para os links */
 }
 
 

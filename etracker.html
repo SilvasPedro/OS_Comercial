@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Tracker - Gerador de O.S.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+
+<body class="flex flex-col items-center">
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="menu-links">
+                <li><a href="index.html">PLANO COMODATO</a></li>
+                <li><a href="plano-compra.html">PLANO COMPRA</a></li>
+                <li><a href="plano-combo.html">PLANO COMBO</a></li>
+                <li><a href="plano-gamer.html">PLANO GAMER</a></li>
+                <li><a href="avaliacao-tv.html">AVL. CABEAR TV</a></li>
+                <li><a href="avaliacao-ponto.html">AVL. PONTO ADICIONAL</a></li>
+                <li><a href="etracker.html">E-TRACKER</a></li>
+            </ul>
+            <div class="menu-actions">
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="form-container">
+            <h1 class="form-title">Dados para O.S. - E-Tracker</h1>
+            
+            <p class="text-center text-xl font-bold text-red-800 mb-8">
+                CLIENTE CONTRATOU RASTREADOR ETECC
+            </p>
+
+            <form id="osEtrackerForm" class="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-8">
+
+                <div class="md:col-span-2">
+                    <label for="contato" class="form-label">CONTATO:</label>
+                    <input type="text" id="contato" name="contato" class="form-input" placeholder="Nome ou Telefone">
+                </div>
+
+                <div class="md:col-span-2">
+                    <label class="form-label">TITULAR DA INTERNET É O MESMO DO VEÍCULO?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="titularMesmo" value="SIM" class="form-radio" checked>
+                            <span>SIM</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="titularMesmo" value="NÃO" class="form-radio">
+                            <span>NÃO</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="tipoVeiculo" class="form-label">TIPO DO VEÍCULO:</label>
+                    <select id="tipoVeiculo" name="tipoVeiculo" class="form-select">
+                        <option value="MOTO">MOTO</option>
+                        <option value="CARRO">CARRO</option>
+                        <option value="MOTO ELÉTRICA">MOTO ELÉTRICA</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="quantidadeVeiculos" class="form-label">QUANTIDADE DE VEÍCULOS:</label>
+                    <input type="number" id="quantidadeVeiculos" name="quantidadeVeiculos" class="form-input" value="1" min="1">
+                </div>
+
+                <div>
+                    <label for="numeroRastreador" class="form-label">NÚMERO DO RASTREADOR:</label>
+                    <input type="text" id="numeroRastreador" name="numeroRastreador" class="form-input">
+                </div>
+
+                <div>
+                    <label for="numeroChip" class="form-label">NÚMERO DO CHIP DO RASTREADOR:</label>
+                    <input type="text" id="numeroChip" name="numeroChip" class="form-input">
+                </div>
+
+                <div class="md:col-span-2">
+                    <label for="modeloRastreador" class="form-label">MODELO RASTREADOR:</label>
+                    <input type="text" id="modeloRastreador" name="modeloRastreador" class="form-input bg-gray-100" value="XT40" readonly>
+                </div>
+
+                <div class="md:col-span-2 mt-6">
+                    <button type="button" id="generateTextEtracker" class="btn btn-primary w-full">
+                        Gerar Texto Formatado
+                    </button>
+                </div>
+            </form>
+
+            <div id="resultAreaEtracker" class="mt-10 hidden">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Texto Formatado:</h2>
+                <textarea id="formattedTextEtracker" rows="12" class="result-textarea"></textarea>
+                <button id="copyButtonEtracker" class="btn btn-secondary w-full mt-4">
+                    Copiar Texto
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/etracker.js"></script>
+</body>
+
+</html>

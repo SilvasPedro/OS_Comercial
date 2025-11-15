@@ -2,27 +2,31 @@
 :root {
     --font-principal: 'Montserrat', sans-serif;
 
-    /* Novas Cores */
-    --cor-primaria: #840016; /* Vermelho escuro para destaque */
-    --cor-secundaria: #E4002B; /* Vermelho vibrante para botões e interações */
-    --cor-fundo-escuro: #060C12; /* Preto/Azul escuro para fundo de seções e texto principal */
-    --cor-fundo-claro: #F7F6F3; /* Branco/Creme para fundo de página e cards */
+    /* Paleta de Cores */
+    --cor-primaria: #840016; /* Vermelho escuro (Institucional) */
+    --cor-secundaria: #E4002B; /* Vermelho vibrante (Ação/Destaque) */
+    --cor-fundo-escuro: #0f172a; /* Azul noite profundo (Mais moderno que o preto puro) */
+    --cor-fundo-pagina: #f3f4f6; /* Cinza bem claro para o fundo geral */
+    --cor-card-bg: #ffffff; /* Branco puro para os cards */
 
-    /* Cores derivadas das novas */
-    --cor-texto-escuro: var(--cor-fundo-escuro);
-    --cor-texto-claro: var(--cor-fundo-claro);
-    --cor-borda: #cccccc; /* Um cinza neutro para bordas */
-    --cor-input-foco-borda: var(--cor-secundaria);
-    --cor-input-foco-sombra: rgba(228, 0, 43, 0.25); /* Sombra suave do vermelho secundário */
+    /* Textos */
+    --cor-texto-titulo: #1e293b;
+    --cor-texto-corpo: #334155;
+    --cor-texto-claro: #f8fafc;
 
-    --sombra-padrao: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    /* Elementos de Interface */
+    --cor-borda: #e2e8f0;
+    --cor-input-bg: #f8fafc;
+    --cor-input-foco: var(--cor-secundaria);
+    --sombra-suave: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --sombra-robusta: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* Reset Básico e Estilo do Body */
+/* Reset e Body */
 body {
     font-family: var(--font-principal);
-    background-color: var(--cor-fundo-claro); /* Fundo da página com a cor clara */
-    color: var(--cor-texto-escuro); /* Texto principal com a cor escura */
+    background-color: var(--cor-fundo-pagina);
+    color: var(--cor-texto-corpo);
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -30,268 +34,283 @@ body {
     flex-direction: column;
 }
 
-/* Estilos do Menu de Navegação Modificados */
+/* --- NAVBAR ROBUSTA --- */
 .navbar {
-    width: 95%;
-    max-width: 1200px;
     background-color: var(--cor-fundo-escuro);
-    padding: 1rem 2rem; /* Aumentei o padding lateral interno */
-    box-shadow: var(--sombra-padrao);
+    width: 95%;
+    max-width: 1400px; /* Levemente mais largo */
+    margin: 1.5rem auto; /* Mais afastado do topo */
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    box-shadow: var(--sombra-robusta);
+    position: sticky;
     top: 1rem;
     z-index: 1000;
-    margin: 1rem auto;
-    border-radius: 1rem;
-    box-sizing: border-box; /* Garante que o padding não estoure a largura */
+    box-sizing: border-box;
 }
 
 .nav-container {
-    width: 100%; /* O container agora usa 100% do espaço disponível na navbar */
     display: flex;
-    justify-content: center; /* Centraliza todo o conteúdo */
+    justify-content: space-between; /* Logo na esquerda, Menu na direita */
+    align-items: center;
+    flex-wrap: wrap; /* Permite quebra em telas menores */
+    gap: 1.5rem;
+}
+
+/* Área da Logo */
+.logo-area {
+    flex-shrink: 0;
+    display: flex;
     align-items: center;
 }
 
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 800; /* Extra bold */
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    border-left: 5px solid var(--cor-secundaria); /* Detalhe visual */
+    padding-left: 0.75rem;
+    line-height: 1;
+}
+
+.logo-text span {
+    color: var(--cor-secundaria); /* Destaca parte do nome se quiser */
+}
+
+/* Menu Links */
 .menu-links {
-    list-style-type: none;
+    list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
+    gap: 0.5rem; /* Espaço entre botões */
+    flex-wrap: wrap;
     justify-content: center;
-    flex-wrap: wrap; /* Permite que os itens vão para a linha de baixo se precisarem */
-    gap: 10px 20px; /* O SEGREDO: 10px de espaço vertical e 20px horizontal entre os itens */
-}
-
-.menu-links li {
-    margin: 0; /* Removemos a margem antiga para usar o 'gap' acima, que é mais preciso */
 }
 
 .menu-links a {
-    color: var(--cor-fundo-claro);
+    color: #94a3b8; /* Cor cinza claro para itens inativos */
     text-decoration: none;
-    font-weight: 600; /* Um pouco mais grosso para ler melhor no fundo preto */
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
     text-transform: uppercase;
-    font-size: 0.85rem; /* Ajuste fino para tentar caber mais itens na mesma linha */
-    white-space: nowrap; /* Impede que o texto de um botão quebre no meio (ex: PLANO \n COMPRA) */
-    display: inline-block;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
 }
 
 .menu-links a:hover,
 .menu-links a:focus {
-    background-color: var(--cor-primaria);
+    background-color: rgba(255, 255, 255, 0.1);
     color: var(--cor-texto-claro);
+    transform: translateY(-2px); /* Leve subida no hover */
 }
 
-.menu-actions {
-    display: none; /* Escondendo se não estiver usando, para liberar espaço para os links */
+/* Botão Ativo (Opcional - você pode adicionar classe .active no HTML da página atual) */
+.menu-links a.active {
+    background-color: var(--cor-secundaria);
+    color: white;
 }
 
-
-/* Layout do Conteúdo Principal */
+/* --- CONTEÚDO PRINCIPAL --- */
 .main-content {
     flex-grow: 1;
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 3rem 1.5rem; /* Mais espaçamento para a área do formulário */
+    padding: 2rem 1rem 4rem 1rem;
 }
 
 .form-container {
-    background-color: var(--cor-texto-claro); /* Fundo do container do formulário com a cor clara */
-    padding: 3rem; /* Mais padding interno */
-    border-radius: 0.75rem;
-    box-shadow: var(--sombra-padrao);
+    background-color: var(--cor-card-bg);
+    padding: 3.5rem;
+    border-radius: 1.5rem; /* Mais arredondado */
+    box-shadow: var(--sombra-robusta);
     width: 100%;
-    max-width: 800px; /* Definindo uma largura máxima para o formulário */
+    max-width: 900px;
+    border: 1px solid var(--cor-borda);
 }
 
 .form-title {
-    font-size: 2.5rem; /* Título maior e mais impactante */
-    font-weight: 700;
-    color: var(--cor-primaria); /* Título com a cor primária */
-    margin-bottom: 2.5rem; /* Mais espaço abaixo do título */
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--cor-primaria);
+    margin-bottom: 3rem;
     text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
 }
 
-/* Estilos de Formulário */
+.form-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--cor-secundaria);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* --- FORMULÁRIOS --- */
 .form-label {
     display: block;
-    margin-bottom: 0.6rem; /* Mais espaço abaixo do label */
-    font-weight: 600;
-    color: var(--cor-texto-escuro); /* Label com a cor de texto escura */
-    font-size: 0.95rem; /* Levemente maior */
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: var(--cor-texto-titulo);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .form-input,
 .form-select,
 .result-textarea {
     width: 100%;
-    padding: 0.85rem 1.15rem; /* Mais padding */
-    border: 1px solid var(--cor-borda);
-    border-radius: 0.375rem;
-    background-color: var(--cor-texto-claro);
-    color: var(--cor-texto-escuro);
+    padding: 0.9rem 1rem;
+    border: 2px solid var(--cor-borda); /* Borda sólida */
+    border-radius: 0.75rem;
+    background-color: var(--cor-input-bg);
+    color: var(--cor-texto-corpo);
     font-size: 1rem;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: var(--font-principal);
+    transition: all 0.2s ease;
 }
 
 .form-input:focus,
 .form-select:focus,
 .result-textarea:focus {
     outline: none;
-    border-color: var(--cor-input-foco-borda);
-    box-shadow: 0 0 0 0.2rem var(--cor-input-foco-sombra);
+    border-color: var(--cor-secundaria);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(228, 0, 43, 0.1); /* Anel de foco suave */
 }
 
-/* Estilos para Radio Buttons */
+/* Radio Buttons Customizados */
 .radio-group {
     display: flex;
-    gap: 2rem; /* Mais espaço entre as opções */
+    gap: 1.5rem;
     margin-top: 0.5rem;
+    padding: 0.5rem 0;
 }
 
 .radio-label {
     display: inline-flex;
     align-items: center;
     cursor: pointer;
-    font-size: 1rem; /* Tamanho padrão da fonte */
-    color: var(--cor-texto-escuro);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
 }
 
-.radio-label span {
-    margin-left: 0.6rem; /* Mais espaço entre o rádio e o texto */
+.radio-label:hover {
+    background-color: #f1f5f9;
 }
 
 .form-radio {
     appearance: none;
-    -webkit-appearance: none;
-    width: 1.35em; /* Levemente maior */
-    height: 1.35em;
-    border: 2px solid var(--cor-borda);
+    width: 1.25em;
+    height: 1.25em;
+    border: 2px solid #cbd5e1;
     border-radius: 50%;
-    background-color: var(--cor-texto-claro);
-    transition: all 0.2s ease-in-out;
-    position: relative;
+    background-color: #fff;
+    margin-right: 0.75rem;
+    display: grid;
+    place-content: center;
+    transition: all 0.2s;
+}
+
+.form-radio::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    background-color: var(--cor-secundaria);
 }
 
 .form-radio:checked {
-    border-color: var(--cor-secundaria); /* Borda do rádio marcado com a cor secundária */
-    background-color: var(--cor-secundaria); /* Fundo do rádio marcado com a cor secundária */
+    border-color: var(--cor-secundaria);
 }
 
 .form-radio:checked::before {
-    content: '';
-    display: block;
-    width: 0.65em; /* Ponto interno maior */
-    height: 0.65em;
-    background-color: var(--cor-texto-claro);
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    transform: scale(1);
 }
 
-.form-radio:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem var(--cor-input-foco-sombra);
-}
-
-
-/* Estilos de Botões */
+/* Botões */
 .btn {
-    padding: 1rem 2rem; /* Mais padding para botões maiores */
-    border-radius: 0.375rem;
-    font-weight: 700; /* Bold */
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em; /* Mais espaçamento entre letras */
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    letter-spacing: 1px;
     cursor: pointer;
     border: none;
+    transition: all 0.3s ease;
+    width: 100%;
+    font-size: 1rem;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem; /* Tamanho de fonte padrão */
-}
-
-.btn:active {
-    transform: translateY(1px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .btn-primary {
-    background-color: var(--cor-secundaria); /* Botão primário com a cor secundária */
-    color: var(--cor-texto-claro);
+    background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+    color: white;
 }
 
-.btn-primary:hover,
-.btn-primary:focus {
-    background-color: var(--cor-primaria); /* Hover no botão primário com a cor primária */
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(228, 0, 43, 0.3);
 }
 
 .btn-secondary {
-    background-color: var(--cor-fundo-escuro); /* Botão secundário com a cor de fundo escura */
-    color: var(--cor-texto-claro);
+    background-color: var(--cor-texto-titulo);
+    color: white;
 }
 
-.btn-secondary:hover,
-.btn-secondary:focus {
-    background-color: var(--cor-primaria); /* Hover no botão secundário com a cor primária */
+.btn-secondary:hover {
+    background-color: #000;
+    transform: translateY(-2px);
 }
 
+/* Textarea de Resultado */
 .result-textarea {
-    background-color: var(--cor-fundo-claro); /* Fundo do textarea permanece claro */
     font-family: 'Courier New', Courier, monospace;
-    min-height: 280px; /* Altura mínima levemente aumentada */
-    resize: vertical;
-    border: 1px solid var(--cor-borda); /* Garante borda */
+    background-color: #f8fafc;
+    border-color: var(--cor-borda);
+    min-height: 300px;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
-
-/* Scrollbar */
-textarea::-webkit-scrollbar {
-    width: 10px;
-}
-textarea::-webkit-scrollbar-track {
-    background: var(--cor-fundo-claro);
-    border-radius: 10px;
-}
-textarea::-webkit-scrollbar-thumb {
-    background: var(--cor-borda);
-    border-radius: 10px;
-}
-textarea::-webkit-scrollbar-thumb:hover {
-    background: #999999; /* Um cinza mais escuro no hover */
-}
-
 
 /* Responsividade */
 @media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+        width: 92%;
+    }
+    
     .nav-container {
         flex-direction: column;
-        align-items: center;
-        gap: 1.5rem; /* Mais espaço entre logo e links */
+        gap: 1rem;
     }
-
-    .menu-links {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .menu-links li {
-        margin: 0.5rem 0.75rem; /* Ajusta margens para quebra de linha */
-    }
-
-    .form-title {
-        font-size: 2rem; /* Título menor em telas pequenas */
-        margin-bottom: 2rem;
+    
+    .logo-area {
+        margin-bottom: 0.5rem;
     }
 
     .form-container {
         padding: 2rem;
     }
 
-    .main-content {
-        padding: 2rem 1rem;
+    .form-title {
+        font-size: 1.75rem;
     }
 }

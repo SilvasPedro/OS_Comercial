@@ -37,7 +37,6 @@ body {
     background-color: var(--cor-fundo-escuro);
     padding: 1rem 2rem; /* Aumentei o padding lateral interno */
     box-shadow: var(--sombra-padrao);
-    position: sticky;
     top: 1rem;
     z-index: 1000;
     margin: 1rem auto;

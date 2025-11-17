@@ -26,6 +26,10 @@ document.addEventListener('DOMContentLoaded', function() {
             data.quantidadeVeiculos = osForm.elements['quantidadeVeiculos'].value.trim() || '1';
             data.numeroRastreador = osForm.elements['numeroRastreador'].value.trim() || 'Não informado';
             data.numeroChip = osForm.elements['numeroChip'].value.trim() || 'Não informado';
+            
+            // Captura do novo campo
+            data.linhaChipCliente = osForm.elements['linhaChipCliente'].value.trim() || 'Não informado';
+            
             data.modeloRastreador = osForm.elements['modeloRastreador'].value.trim();
 
             const formattedOutput = `
@@ -36,6 +40,7 @@ TIPO DO VEICULO: ${data.tipoVeiculo}
 QUANTIDADE DE VEICULOS: ${data.quantidadeVeiculos}
 NUMERO DO RASTREADOR: ${data.numeroRastreador}
 NUMERO DO CHIP DO RASTREADOR: ${data.numeroChip}
+NUMERO DA LINHA DO CHIP (CLIENTE): ${data.linhaChipCliente}
 MODELO RASTREADOR: ${data.modeloRastreador}
             `.trim();
 
